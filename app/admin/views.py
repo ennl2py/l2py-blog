@@ -1,6 +1,5 @@
 # 导入admin蓝本
 from . import admin
-# 导入
 from flask import render_template
 
 # 路由修饰器，命名规则为 @蓝本名.route('/url地址')

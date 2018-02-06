@@ -1,11 +1,9 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from config import config
 
 # 创建flask_extensions(即相应Flask扩展)的实例，创建后才可以调用类的方法
-# 这里引用的所用扩展基本上都需要在后续 create_app() 工厂函数中
-bootstrap = Bootstrap()
+# 这里引用的所有扩展基本上都需要在后续 create_app() 工厂函数中进行初始化操作
 db = SQLAlchemy()
 
 # create_app()函数接收一个参数，即config.py文件里面所定义的config字典里面的key('development','production'和'default')
@@ -24,7 +22,6 @@ def create_app(config_name):
     config[config_name].init_app(app)
 
     # 然后开始进行相应Flask扩展的初始化操作
-    bootstrap.init_app(app)
     db.init_app(app)
 
     # 注册前台蓝本
