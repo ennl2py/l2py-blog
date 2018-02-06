@@ -23,7 +23,7 @@ class Config:
 
 #开发环境配置项
 class DevelopmentConfig(Config):
-    DEBUG = True #DEBUG 追踪网站信息，建议在开发开启
+    DEBUG = True #DEBUG 追踪网站信息，建议在开发环境开启
 
     #SQLAlchemy连接数据库的一般格式为database_type + driver: // user: password @ sql_server_ip:port / database_name
     # SQLALCHEMY连接mysql数据库
