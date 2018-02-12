@@ -33,7 +33,7 @@ def create_app(config_name):
     # 注册后台蓝本
     # 从当前文件夹下的admin文件夹(from .admin)引入admin包(import admin)作为admin蓝本(as admin_blueprint)
     from .admin import admin as admin_blueprint
-    # 通过Flask程序实例app 提供的 register_blueprint() 方法注册蓝本，参数为 蓝本名_blueprint，同时增加蓝本后缀 /admin
+    # 通过Flask程序实例app 提供的 register_blueprint() 方法注册蓝本，参数为 蓝本名_blueprint，同时增加蓝本前缀 /admin
     app.register_blueprint(admin_blueprint, url_prefix='/admin')
 
     # 最后，返回Flask程序实例app 

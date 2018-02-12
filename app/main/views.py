@@ -11,6 +11,7 @@ def index():
 def article():
     return render_template('article.html')
 
-@main.route('/test')
-def test():
-    return 'Hello,Word!'
+@main.route('/test/<name>')
+def test(name):
+    text = '我是第二行的字符串'
+    return render_template('test.html', name=name, text=text)

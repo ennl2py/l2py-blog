@@ -2,9 +2,38 @@
 from . import admin
 from flask import render_template
 
-# 路由修饰器，命名规则为 @蓝本名.route('/url地址')
+# 后台登录页
 @admin.route('/login')
-# 对应路由的视图函数，这个函数进行相应的程序处理后，返回响应到客户端(return 响应)，
-# 在这里响应为 templates/admin 文件夹下的 login.html 文件
 def login():
     return render_template('admin/login.html')
+
+# 后台首页
+@admin.route('/')
+def index():
+    return render_template('admin/index.html')
+
+# 文章页面
+@admin.route('/article')
+def article():
+    return render_template('admin/article.html')
+
+# 文章分类页面
+@admin.route('/category')
+def category():
+    return render_template('admin/category.html')
+
+# 用户页面
+@admin.route('/user')
+def user():
+    return render_template('admin/user.html')
+
+# 文章评论页面
+@admin.route('/article/<int:id>/comments')
+def article_comments(id):
+    return render_template('admin/comment.html', id=id)
+
+# 文章添加页面
+@admin.route('/add/article')
+def add_article():
+    return render_template('admin/editearticle.html')
+
