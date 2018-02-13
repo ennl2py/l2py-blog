@@ -9,7 +9,7 @@
 
 {% block main %}
 <h3>操作</h3>
-<a href="#"><button type="button" class="btn btn-default">新建文章</button></a>
+<a href="{{ url_for('.add_article') }}"><button type="button" class="btn btn-default">新建文章</button></a>
 <h3>管理</h3>
 <div>
 	<table class="table table-striped table-hover">
