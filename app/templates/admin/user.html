@@ -20,24 +20,14 @@
 			</tr>
 		</thead>
 		<tbody>
+			{% for user in users %}
 			<tr>
-				<td>xx</td>
-				<td>xxx</td>
-				<td><img src="http://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="头像" width="20" height="20"></td>
-				<td>第三方登录方式</td>
+				<td>{{ user.id }}</td>
+				<td>{{ user.username }}</td>
+				<td><img src="{{ user.avatar_url }}" alt="头像" width="20" height="20"></td>
+				<td>{{ user.social_type }}</td>
 			</tr>
-			<tr>
-				<td>xx</td>
-				<td>xxx</td>
-				<td><img src="http://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="头像" width="20" height="20"></td>
-				<td>第三方登录方式</td>
-			</tr>
-			<tr>
-				<td>xx</td>
-				<td>xxx</td>
-				<td><img src="http://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="头像" width="20" height="20"></td>
-				<td>第三方登录方式</td>
-			</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 </div>

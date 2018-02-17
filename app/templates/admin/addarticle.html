@@ -19,17 +19,17 @@
 		<label for="article_category">文章分类</label>
 		<select class="form-control" id="article_category" name="category">
 			{% for category in categorys %}
-			<option value={{ category.id }} {% if article.category_id==category.id %} selected="selected" {% endif %}>{{ category.name }}</option>
+			<option value={{ category.id }}>{{ category.name }}</option>
 			{% endfor %}
 		</select>
 	</div>
 	<div class="form-group">
 		<label for="article_title">文章标题</label>
-		<input type="text" class="form-control" id="article_title" name="title" value={{ article.title }}>
+		<input type="text" class="form-control" id="article_title" name="title">
 	</div>
 	<div class="form-group">
 		<label for="editor">文章内容</label>
-		<textarea id="editor" name="content" class="form-control" rows="30">{{ article.content }}</textarea>
+		<textarea id="editor" name="content" class="form-control" rows="30"></textarea>
 	</div>
 	<button type="submit" class="btn btn-default">发布</button>
 </form>

@@ -24,39 +24,21 @@
 			</tr>
 		</thead>
 		<tbody>
+		
+			{% for article in articles %}
 			<tr>
-				<td>文章标题</td>
-				<td>文章分类名</td>
-				<td>阅读量</td>
-				<td><a href="{{ url_for('.article_comments', id=1) }}">查看评论(xxx)</a></td>
-				<td>创建时间</td>
+				<td>{{ article.title }}</td>
+				<td>{{ article.category.name }}</td>
+				<td>{{ article.reading_time }}</td>
+				<td><a href="{{ url_for('.article_comments', id=article.id) }}">查看评论({{ article.comments_times() }})</a></td>
+				<td>{{ article.created_time }}</td>
 				<td>
-					<a href="#">修改</a>
-					<a href="#" onClick="if(!confirm('是否确认删除文章？'))return false;">删除</a>
+					<a href="{{ url_for('.edit_article', id=article.id) }}">修改</a>
+					<a href="{{ url_for('.del_article', id=article.id) }}" onClick="if(!confirm('是否确认删除文章{{ article.title }}？'))return false;">删除</a>
 				</td>
 			</tr>
-			<tr>
-				<td>文章标题</td>
-				<td>文章分类名</td>
-				<td>阅读量</td>
-				<td><a href="{{ url_for('.article_comments', id=2) }}">查看评论(xxx)</a></td>
-				<td>创建时间</td>
-				<td>
-					<a href="#">修改</a>
-					<a href="#" onClick="if(!confirm('是否确认删除文章？'))return false;">删除</a>
-				</td>
-			</tr>
-			<tr>
-				<td>文章标题</td>
-				<td>文章分类名</td>
-				<td>阅读量</td>
-				<td><a href="{{ url_for('.article_comments', id=3) }}">查看评论(xxx)</a></td>
-				<td>创建时间</td>
-				<td>
-					<a href="#">修改</a>
-					<a href="#" onClick="if(!confirm('是否确认删除文章？'))return false;">删除</a>
-				</td>
-			</tr>
+			{% endfor %}
+			
 		</tbody>
 	</table>
 </div>

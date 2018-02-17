@@ -28,24 +28,14 @@
 			</tr>
 		</thead>
 		<tbody>
+			{% for category in categorys %}
 			<tr>
-				<td>xx</td>
-				<td>xxx</td>
-				<td>xxxx</td>
-				<td>该分类不可删除</td>
+			<td>{{ category.id }}</td>
+			<td>{{ category.name }}</td>
+			<td>{{ category.articles|length }}</td>
+			<td><a href="{{ url_for('.del_category', id=category.id) }}" onClick="if(!confirm('是否确认删除文章分类{{ category.name }}？'))return false;">删除</a></td>
 			</tr>
-			<tr>
-				<td>xx</td>
-				<td>xxx</td>
-				<td>xxxx</td>
-				<td><a href="#" onClick="if(!confirm('是否确认删除文章分类xxx？'))return false;">删除</a></td>
-			</tr>
-			<tr>
-				<td>xx</td>
-				<td>xxx</td>
-				<td>xxxx</td>
-				<td><a href="#" onClick="if(!confirm('是否确认删除文章分类xxx？'))return false;">删除</a></td>
-			</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 </div>

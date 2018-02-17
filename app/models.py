@@ -61,6 +61,20 @@ class Article(db.Model):
     # 文章所对应的一级回复关系定义，一篇文章对应多个一级回复
     comments = db.relationship('Comment', backref='article')
 
+    # 粗略统计，每打开文章链接一次，阅读量+1
+    def add_reading_time(self):
+        self.reading_time += 1
+
+    # 文章评论条数统计，包括一级回复和二级回复
+    def comments_times(self):
+        comments = Comment.query.filter_by(article_id=self.id).all()
+        times = 0
+        for each in comments:
+            times += 1
+            if each.replys:
+                times += len(each.replys)
+        return times
+
 
 # 定义一级回复类，将在数据库中创建一级回复数据表
 class Comment(db.Model):
