@@ -27,10 +27,10 @@ class DevelopmentConfig(Config):
 
     # SQLAlchemy连接数据库的一般格式为database_type + driver: // user: password @ sql_server_ip:port / database_name
     # SQLALCHEMY连接mysql数据库
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:8114193@localhost/l2py_db'
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:8114193@localhost/l2py_db'
 
     # SQLALCHEMY连接sqlite数据库
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'dev-database.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'dev-database.sqlite')
 
 # 生产环境配置项
 class ProductionConfig(Config):
