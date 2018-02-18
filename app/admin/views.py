@@ -44,9 +44,9 @@ def add_article():
 # 文章编辑页面
 @admin.route('/edit/article/<int:id>', methods=['GET', 'POST'])
 def edit_article(id):
-    categorys = Category.query.all()
     article = Article.query.get_or_404(id)
-    if request.method == "POST":
+    categorys = Category.query.all()
+    if request.method == "POST" and request.form['title'] and request.form['content'] != '':
         article.title = request.form['title']
         article.content = request.form['content']
         article.abstract = ch_content(request.form['content'])[:137]+'...'
