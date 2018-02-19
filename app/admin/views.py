@@ -87,7 +87,7 @@ def del_category(id):
     # 如果该分类下没有文章，则删除分类
     if len(category.articles) == 0:
         db.session.delete(category)
-        return redirect(url_for('admin.category'))
+    return redirect(url_for('admin.category'))
 
 # 用户页面
 @admin.route('/user')
