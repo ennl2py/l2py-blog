@@ -100,7 +100,7 @@ def user():
 def article_comments(id):
     title = Article.query.get_or_404(id).title
     comments = Comment.query.filter_by(article_id=id).all()
-    return render_template('admin/comment.html', comments=comments, title=title, id=id)
+    return render_template('admin/comment.html', comments=comments, title=title)
 
 # 一级回复屏蔽
 @admin.route('/shield/comment/<int:id>')
